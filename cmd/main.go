@@ -5,10 +5,10 @@ import (
 	"log"
 	"net"
 
-	"github.com/hellokvn/go-grpc-product-svc/pkg/config"
-	"github.com/hellokvn/go-grpc-product-svc/pkg/db"
-	pb "github.com/hellokvn/go-grpc-product-svc/pkg/pb"
-	services "github.com/hellokvn/go-grpc-product-svc/pkg/services"
+	"github.com/heifetzwu/go-grpc-product-svc/pkg/config"
+	"github.com/heifetzwu/go-grpc-product-svc/pkg/db"
+	pb "github.com/heifetzwu/go-grpc-product-svc/pkg/pb"
+	services "github.com/heifetzwu/go-grpc-product-svc/pkg/services"
 	"google.golang.org/grpc"
 )
 
