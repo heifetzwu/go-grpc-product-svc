@@ -2,6 +2,7 @@ package services
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 
 	"github.com/heifetzwu/go-grpc-product-svc/pkg/db"
@@ -15,6 +16,10 @@ type Server struct {
 
 func (s *Server) CreateProduct(ctx context.Context, req *pb.CreateProductRequest) (*pb.CreateProductResponse, error) {
 	var product models.Product
+
+	fmt.Println("### reg req.Name=", req.Name)
+	fmt.Println("### reg req.Stock=", req.Stock)
+	fmt.Println("### reg req.Price=", req.Price)
 
 	product.Name = req.Name
 	product.Stock = req.Stock
