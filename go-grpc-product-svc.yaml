@@ -1,0 +1,55 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: go-grpc-product-svc
+spec:
+  selector:
+    app: go-grpc-product-svc
+  type: ClusterIP
+  ports:
+  - port: 50052
+    targetPort: 50052
+    protocol: TCP
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-grpc-product-svc
+spec:
+  selector:
+    matchLabels:
+      app: go-grpc-product-svc
+  template:
+    metadata:
+      labels:
+        app: go-grpc-product-svc
+    spec:
+      containers:
+      - name: go-grpc-product-svc
+        image: docker.okidog.xyz/go-grpc-product-svc
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 50052
+        # command: [ "/bin/sh", "-c", "--" ]
+        # args: [ "while true; do sleep 30; done;" ]
+          
+          
+        
+
+        
+---
+
+
+# Refer to Makefile  make k8s_configmap
+
+# apiVersion: v1
+# kind: apiVersion: v1
+# kind: ConfigMap
+# metadata:
+#   name: go-grpc-frontend-config
+# data:
+#   key: value
